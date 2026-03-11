@@ -10,48 +10,44 @@
         :root { --rose: #ff4d6d; --lily: #f8edeb; --hortensia: #a2d2ff; --gold: #d4af37; --dark: #1a1a1a; }
         body, html { margin: 0; padding: 0; min-height: 100vh; background: #fffafa; font-family: 'Montserrat', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* --- INTRO --- */
+        /* --- INTRO & FOTO --- */
         #hero {
-            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
             background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://www.transparenttextures.com/patterns/floral-paper.png');
-            text-align: center; padding: 20px;
+            text-align: center; padding: 40px 20px;
         }
         h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--rose); margin: 0; }
-        .timer-box { margin-top: 20px; background: white; padding: 15px 25px; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); font-weight: 800; color: #555; border: 1px solid var(--rose); }
-
-        /* --- BOTONES PRINCIPALES --- */
-        .main-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
-        .btn-main {
-            padding: 15px 25px; border: none; border-radius: 50px; cursor: pointer; font-family: 'Montserrat'; font-weight: 700;
-            transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        .photo-frame {
+            margin: 30px auto; width: 220px; height: 220px; border: 8px solid white; border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); position: relative; overflow: hidden; background: #eee;
         }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .timer-box { margin-top: 20px; background: white; padding: 15px 25px; border-radius: 50px; font-weight: 800; border: 1px solid var(--rose); }
+
+        /* --- NAVEGACIÓN --- */
+        .main-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
+        .btn-main { padding: 15px 25px; border: none; border-radius: 50px; cursor: pointer; font-weight: 700; transition: 0.3s; }
         .btn-rose { background: var(--rose); color: white; }
         .btn-lily { background: white; color: #d4a373; border: 1px solid #d4a373; }
         .btn-hort { background: var(--hortensia); color: #004a99; }
 
-        /* --- ZONA DE MINIJUEGOS --- */
-        .games-title { margin-top: 50px; font-family: 'Cinzel'; font-size: 0.8rem; letter-spacing: 4px; color: #888; }
-        .games-nav { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
-        .btn-game { background: #333; color: white; border: none; padding: 10px 15px; border-radius: 10px; cursor: pointer; font-size: 0.7rem; font-weight: 800; }
-
-        /* --- SECCIONES --- */
+        /* --- SECCIONES ESPECIALES --- */
         .section { display: none; padding: 40px 20px; max-width: 800px; margin: 0 auto; animation: fadeInUp 0.8s ease; text-align: center; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* Juego 1: Clicker de Amor */
-        .heart-clicker { font-size: 5rem; cursor: pointer; user-select: none; transition: 0.1s; }
-        .heart-clicker:active { transform: scale(0.8); }
+        .love-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--rose); text-align: left; }
+        .poem-box { font-family: 'Dancing Script', cursive; font-size: 1.8rem; line-height: 1.6; color: #444; margin: 20px 0; }
+        
+        /* Estilo para las Promesas (Hortensias) */
+        .promise-item { display: flex; align-items: center; gap: 10px; margin: 10px 0; font-size: 1rem; color: #555; }
+        .promise-item i { color: var(--hortensia); font-size: 1.5rem; }
 
-        /* Juego 2: Puzzle de Memoria */
+        /* --- JUEGOS --- */
+        .heart-clicker { font-size: 6rem; cursor: pointer; transition: 0.1s; display: inline-block; }
         .memory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 320px; margin: 20px auto; }
         .card { height: 70px; background: var(--gold); border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: transparent; }
         .card.open { background: white; color: initial; border: 2px solid var(--gold); }
-
-        /* Juego 3: Atrapa la Hortensia */
-        #catcher-zone { width: 100%; height: 300px; background: #e0f2fe; border-radius: 20px; position: relative; overflow: hidden; touch-action: none; border: 2px dashed var(--hortensia); }
-        .falling-flower { position: absolute; font-size: 2rem; cursor: pointer; }
-
-        .final-msg { font-family: 'Dancing Script'; font-size: 2.5rem; color: var(--rose); margin-top: 30px; display: none; }
+        #catcher-zone { width: 100%; height: 300px; background: #e0f2fe; border-radius: 20px; position: relative; overflow: hidden; border: 2px dashed var(--hortensia); }
     </style>
 </head>
 <body>
@@ -59,7 +55,12 @@
 <section id="hero">
     <div style="font-size: 0.7rem; letter-spacing: 5px; font-weight: 800; color: var(--gold);">MESARIO #11</div>
     <h1>Zarelly Dayanne</h1>
-    <div class="timer-box" id="main-timer">Contando cada segundo...</div>
+    
+    <div class="photo-frame">
+        <img src="URL_DE_TU_FOTO" alt="Nuestra Foto">
+    </div>
+
+    <div class="timer-box" id="main-timer">Cargando...</div>
 
     <div class="main-nav">
         <button class="btn-main btn-rose" onclick="openSec('rosas')">🌹 ROSAS</button>
@@ -67,56 +68,78 @@
         <button class="btn-main btn-hort" onclick="openSec('hortensias')">💐 HORTENSIAS</button>
     </div>
 
-    <div class="games-title">CENTRO DE ENTRETENIMIENTO</div>
-    <div class="games-nav">
-        <button class="btn-game" onclick="openSec('game-hearts')">PULSACIONES</button>
-        <button class="btn-game" onclick="openSec('game-memory')">MEMORIA</button>
-        <button class="btn-game" onclick="openSec('game-catch')">ATRAPA AMOR</button>
+    <div style="margin-top: 40px;">
+        <button onclick="openSec('game-hearts')" style="background:#333; color:white; border:none; padding:10px 20px; border-radius:20px; cursor:pointer;">MINIJUEGOS 🎮</button>
     </div>
 </section>
 
 <div id="rosas" class="section">
-    <h2 style="font-family: 'Playfair Display'; color: var(--rose);">El Jardín de Rosas</h2>
-    <p>Mañana cumplimos 11 meses. Gracias por devorar en mi corazón como lo hiciste en las elecciones. ¡Eres la mejor delegada y novia!</p>
+    <div class="love-card">
+        <h2 style="font-family:'Playfair Display'; color:var(--rose); text-align:center;">Una Carta para mi Delegada 🌹</h2>
+        <p><b>Mi amada Zarelly Dayanne,</b></p>
+        <p>Hoy cumplimos 11 meses y no puedo evitar pensar en todo lo que hemos logrado. Así como "devoraste" en las elecciones con tu liderazgo e inteligencia, has devorado cada rincón de mi corazón. Eres una mujer increíble, capaz de todo lo que te propongas. Mañana celebramos casi un año de ser el equipo perfecto. Gracias por ser mi novia, mi apoyo y mi vida entera.</p>
+        <p style="text-align:right; font-family:'Dancing Script'; font-size:1.5rem;">Con amor infinito, José.</p>
+    </div>
 </div>
 
 <div id="lirios" class="section">
-    <h2 style="font-family: 'Playfair Display';">Pureza de Lirios</h2>
-    <p>Tú puedes con todo, preciosa. Eres inteligente, capaz y el lirio más bello de mi vida.</p>
+    <h2 style="font-family:'Playfair Display';">Poema de 11 Meses 🌸</h2>
+    <div class="poem-box">
+        Once meses han pasado,<br>
+        desde aquel abril florecido,<br>
+        de tu risa me he prendado,<br>
+        y en tu amor me he perdido.<br><br>
+        Eres lirio de pureza,<br>
+        inteligente y valiente,<br>
+        mi mayor y única certeza,<br>
+        te amo hoy y siempre.
+    </div>
+    <p style="color:var(--gold); font-weight:800;">¡Tú puedes con todo, preciosa!</p>
 </div>
 
 <div id="hortensias" class="section">
-    <h2 style="font-family: 'Playfair Display'; color: #004a99;">Gratitud de Hortensias</h2>
-    <p>Por cada momento de apoyo, por cada WIWIWIWIWI y por elegirme cada día.</p>
+    <div class="love-card" style="border-top-color: var(--hortensia);">
+        <h2 style="font-family:'Playfair Display'; color:#004a99; text-align:center;">Mis 11 Promesas 💐</h2>
+        <div class="promise-item"><span>✨</span> Siempre seré tu fan #1 en la FEPUC y en la vida.</div>
+        <div class="promise-item"><span>✨</span> Nunca nos faltarán los "WIWIWIWIWI" para reír.</div>
+        <div class="promise-item"><span>✨</span> Te cuidaré en tus días cansados.</div>
+        <div class="promise-item"><span>✨</span> Seguiremos construyendo metas juntos.</div>
+        <div class="promise-item"><span>✨</span> Escucharé cada una de tus ideas brillantes.</div>
+        <div class="promise-item"><span>✨</span> Habrá flores para ti, virtuales y reales.</div>
+        <div class="promise-item"><span>✨</span> Mi hombro siempre será tu lugar seguro.</div>
+        <div class="promise-item"><span>✨</span> Celebraremos cada triunfo tuyo como mío.</div>
+        <div class="promise-item"><span>✨</span> Te recordaré lo hermosa que eres cada mañana.</div>
+        <div class="promise-item"><span>✨</span> Aprenderé de tu fuerza y liderazgo.</div>
+        <div class="promise-item"><span>✨</span> Te amaré más en el mes 12 que en el 11.</div>
+    </div>
 </div>
 
 <div id="game-hearts" class="section">
-    <h2>¿Cuánto late mi corazón?</h2>
-    <p>Presiona el corazón lo más rápido que puedas.</p>
+    <h2>Amor Infinito</h2>
     <div class="heart-clicker" onclick="heartPop()">❤️</div>
-    <div id="heart-count" style="font-size: 2rem; font-weight: 800; margin-top: 10px;">0</div>
-    <p id="heart-msg" style="font-style: italic; color: var(--rose);"></p>
+    <div id="heart-count" style="font-size: 2.5rem; color: var(--rose); font-weight:800;">0</div>
+    <div id="heart-msg" style="min-height: 50px; margin-top: 15px; font-weight: 600;">Haz clic para ver cuánto te amo...</div>
+    <div style="margin-top:20px;">
+        <button class="btn-main" onclick="openSec('game-memory')" style="font-size:0.7rem;">Jugar Memoria</button>
+        <button class="btn-main" onclick="openSec('game-catch')" style="font-size:0.7rem;">Atrapar Flores</button>
+    </div>
 </div>
 
 <div id="game-memory" class="section">
     <h2>Memoria Floral</h2>
-    <p>Encuentra los pares de flores.</p>
     <div class="memory-grid" id="mem-grid"></div>
 </div>
 
 <div id="game-catch" class="section">
     <h2>Atrapa las Hortensias</h2>
-    <p>¡No dejes que caigan!</p>
     <div id="catcher-zone"></div>
-    <div style="margin-top: 10px; font-weight: 800;">Atrapadas: <span id="catch-score">0</span>/11</div>
+    <div style="margin-top:10px; font-weight:800;">Puntos: <span id="catch-score">0</span>/11</div>
 </div>
 
-<div id="final-msg" class="section final-msg">¡TE AMO PRECIOSA! ❤️<br><span style="font-size: 1rem; color: #555;">José & Zarelly Dayanne: 11 Meses</span></div>
-
 <script>
-    // --- TEMPORIZADOR EXACTO (11 ABRIL 2025) ---
+    // CONTADOR (11 ABRIL 2025)
     function updateTimer() {
-        const start = new Date(2025, 3, 11, 0, 0, 0); // Abril es mes 3
+        const start = new Date(2025, 3, 11, 0, 0, 0); 
         const now = new Date();
         const diff = now - start;
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -127,87 +150,60 @@
     }
     setInterval(updateTimer, 1000);
 
-    // --- NAVEGACIÓN ---
     function openSec(id) {
         document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
         document.getElementById(id).style.display = 'block';
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         if(id === 'game-memory') initMemory();
         if(id === 'game-catch') initCatchGame();
     }
 
-    // --- MINIJUEGO 1: HEART CLICKER ---
+    // CLICKER DE AMOR
     let hCount = 0;
+    const msgs = ["Eres mi todo", "Mi delegada favorita", "WIWIWIWIWI", "Te amo Zarelly", "Tú puedes preciosa", "Devoraste", "11 meses mágicos", "Mi vida entera", "Eres luz", "Por siempre tú"];
     function heartPop() {
         hCount++;
         document.getElementById('heart-count').innerText = hCount;
-        confetti({ particleCount: 10, spread: 30, origin: { y: 0.8 }, colors: ['#ff4d6d'] });
-        if(hCount == 11) document.getElementById('heart-msg').innerText = "¡11 meses de latidos por ti!";
-        if(hCount == 50) document.getElementById('heart-msg').innerText = "¡Ya párale que me vas a enamorar más! 😂";
+        document.getElementById('heart-msg').innerText = msgs[Math.floor(hCount / 20) % msgs.length];
+        confetti({ particleCount: 10, spread: 30, origin: { y: 0.8 } });
     }
 
-    // --- MINIJUEGO 2: MEMORY ---
+    // MEMORIA
     function initMemory() {
         const icons = ['🌹','🌹','🌸','🌸','💐','💐','💎','💎','💍','💍','✨','✨','❤️','❤️','👑','👑'];
-        const grid = document.getElementById('mem-grid');
-        grid.innerHTML = '';
+        const grid = document.getElementById('mem-grid'); grid.innerHTML = '';
         icons.sort(() => 0.5 - Math.random()).forEach(icon => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.innerHTML = icon;
+            const card = document.createElement('div'); card.className = 'card'; card.innerHTML = icon;
             card.onclick = function() {
                 if(this.classList.contains('open')) return;
                 this.classList.add('open');
                 const opened = document.querySelectorAll('.open:not(.matched)');
                 if(opened.length === 2) {
-                    if(opened[0].innerHTML === opened[1].innerHTML) {
-                        opened.forEach(c => c.classList.add('matched'));
-                        if(document.querySelectorAll('.matched').length === 16) {
-                            confetti({ particleCount: 150 });
-                            alert("¡Memoria de elefante! Te amo Zarelly Dayanne.");
-                        }
-                    } else {
-                        setTimeout(() => opened.forEach(c => c.classList.remove('open')), 500);
-                    }
+                    if(opened[0].innerHTML === opened[1].innerHTML) opened.forEach(c => c.classList.add('matched'));
+                    else setTimeout(() => opened.forEach(c => c.classList.remove('open')), 500);
                 }
             };
             grid.appendChild(card);
         });
     }
 
-    // --- MINIJUEGO 3: CATCH GAME ---
+    // ATRAPAR FLORES
     let cScore = 0;
     function initCatchGame() {
-        const zone = document.getElementById('catcher-zone');
-        zone.innerHTML = '';
-        cScore = 0;
+        const zone = document.getElementById('catcher-zone'); zone.innerHTML = ''; cScore = 0;
         document.getElementById('catch-score').innerText = cScore;
-        
         function createFlower() {
             if(cScore >= 11) return;
-            const f = document.createElement('div');
-            f.className = 'falling-flower';
-            f.innerHTML = '💐';
-            f.style.left = Math.random() * 80 + '%';
-            f.style.top = '-50px';
-            zone.appendChild(f);
-            
+            const f = document.createElement('div'); f.className = 'falling-flower'; f.innerHTML = '💐';
+            f.style.left = Math.random() * 80 + '%'; f.style.top = '-50px'; zone.appendChild(f);
             let pos = -50;
             let fall = setInterval(() => {
-                pos += 3;
-                f.style.top = pos + 'px';
+                pos += 3; f.style.top = pos + 'px';
                 if(pos > 300) { clearInterval(fall); f.remove(); }
             }, 20);
-
             f.onclick = () => {
-                cScore++;
-                document.getElementById('catch-score').innerText = cScore;
-                clearInterval(fall);
-                f.remove();
-                if(cScore === 11) {
-                    document.getElementById('final-msg').style.display = 'block';
-                    confetti({ particleCount: 200, spread: 70 });
-                }
+                cScore++; document.getElementById('catch-score').innerText = cScore;
+                clearInterval(fall); f.remove();
+                if(cScore === 11) confetti({ particleCount: 150 });
             };
             setTimeout(createFlower, 1000);
         }
