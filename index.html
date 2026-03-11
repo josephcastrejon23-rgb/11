@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11 Meses Juntos: José & Zarelly ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        :root { --rose: #ff4d6d; --lily: #f8edeb; --hortensia: #a2d2ff; --gold: #d4af37; --dark: #1a1a1a; }
+        body, html { margin: 0; padding: 0; min-height: 100vh; background: #fff5f5; font-family: 'Montserrat', sans-serif; overflow-x: hidden; color: #444; }
+
+        /* Pantalla de Carga/Entrada */
+        #hero {
+            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 
+                        url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            text-align: center; padding: 20px;
+        }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--rose); margin: 0; }
+        .mesario-tag { font-family: 'Dancing Script', cursive; font-size: 2rem; color: var(--gold); }
+
+        /* Navegación por Botones Florales */
+        .flower-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 40px; }
+        .btn-flower {
+            padding: 15px 30px; border: none; border-radius: 50px; cursor: pointer;
+            font-family: 'Montserrat', sans-serif; font-weight: 600; transition: 0.4s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 10px;
+        }
+        .btn-rose { background: var(--rose); color: white; }
+        .btn-lily { background: #fff; color: #d4a373; border: 1px solid #d4a373; }
+        .btn-hort { background: var(--hortensia); color: #004a99; }
+        .btn-flower:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+
+        /* Secciones */
+        .section { display: none; padding: 50px 20px; max-width: 800px; margin: 0 auto; animation: fadeIn 1s ease; text-align: center; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .flower-img { font-size: 4rem; margin-bottom: 20px; display: block; }
+
+        /* Estilo para los Lirios (Cartas) */
+        .envelope-container { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .envelope { background: var(--lily); padding: 20px; border-radius: 10px; border: 1px dashed var(--gold); cursor: pointer; transition: 0.3s; width: 150px; }
+        .envelope:hover { background: #fae1dd; }
+
+        /* Estilo para Hortensias (Nube de Gratitud) */
+        .gratitude-tag { display: inline-block; background: #e0f2fe; padding: 8px 15px; margin: 5px; border-radius: 20px; color: #0369a1; font-size: 0.9rem; }
+
+        #final-msg { font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--rose); margin-top: 40px; display: none; }
+    </style>
+</head>
+<body>
+
+<section id="hero">
+    <div class="mesario-tag">Felices 11 Meses</div>
+    <h1>Para mi hermosa Zarelly</h1>
+    <p style="letter-spacing: 3px; font-size: 0.8rem; margin-top: 10px;">UNA SORPRESA DE JOSÉ</p>
+    
+    <div class="flower-nav">
+        <button class="btn-flower btn-rose" onclick="showSec('rosas')"><span>🌹</span> ROSAS</button>
+        <button class="btn-flower btn-lily" onclick="showSec('lirios')"><span>🌸</span> LIRIOS</button>
+        <button class="btn-flower btn-hort" onclick="showSec('hortensias')"><span>💐</span> HORTENSIAS</button>
+    </div>
+
+    <div id="rosas" class="section">
+        <div class="card">
+            <span class="flower-img">🌹</span>
+            <h2 style="font-family: 'Playfair Display'; color: var(--rose);">Nuestra Historia en Tiempo</h2>
+            <p>Desde que llegaste a mi vida, cada segundo ha contado.</p>
+            <div id="counter" style="font-size: 1.2rem; font-weight: 800; color: var(--dark); background: #fff5f5; padding: 20px; border-radius: 10px;">
+                Cargando nuestro tiempo...
+            </div>
+            <p style="font-style: italic; margin-top: 15px;">"11 meses de ser el hombre más afortunado por tenerte."</p>
+        </div>
+    </div>
+
+    <div id="lirios" class="section">
+        <span class="flower-img">🌸</span>
+        <h2 style="font-family: 'Playfair Display';">Cartas de Pureza</h2>
+        <p>Haz clic en cada lirio para leer un deseo mío para nosotros:</p>
+        <div class="envelope-container">
+            <div class="envelope" onclick="alert('Mi deseo es seguir viendo esa sonrisa que ilumina mis días más oscuros.')">Deseo #1</div>
+            <div class="envelope" onclick="alert('Que nunca nos falte la confianza y el apoyo mutuo que nos trajo hasta aquí.')">Deseo #2</div>
+            <div class="envelope" onclick="alert('Por muchos meses más de risas, metas cumplidas y WIWIWIWIWIs.')">Deseo #3</div>
+        </div>
+    </div>
+
+    <div id="hortensias" class="section">
+        <div class="card" style="border-left: 10px solid var(--hortensia);">
+            <span class="flower-img">💐</span>
+            <h2 style="font-family: 'Playfair Display';">Mi Gratitud por Ti</h2>
+            <div id="gratitude-cloud">
+                <span class="gratitude-tag">Tu paciencia</span>
+                <span class="gratitude-tag">Tu inteligencia</span>
+                <span class="gratitude-tag">Tus abrazos</span>
+                <span class="gratitude-tag">Tu apoyo en la FEPUC</span>
+                <span class="gratitude-tag">Tu forma de amarme</span>
+                <span class="gratitude-tag">Tu ternura</span>
+                <span class="gratitude-tag">Nuestras metas</span>
+            </div>
+            <button class="btn-flower btn-rose" style="margin: 20px auto;" onclick="celebrate()">REVELAR REGALO FINAL ❤️</button>
+        </div>
+    </div>
+
+    <div id="final-msg">¡Te amo por siempre, Zarelly! 💍</div>
+</section>
+
+<script>
+    function showSec(id) {
+        // Ocultar todas
+        document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+        // Mostrar la seleccionada
+        document.getElementById(id).style.display = 'block';
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        
+        if(id === 'rosas') startCounter();
+    }
+
+    function startCounter() {
+        // Ajusta esta fecha a cuando empezaron (Año, Mes-1, Día)
+        // Ejemplo: 15 de Abril de 2025
+        const startDate = new Date(2025, 3, 15); 
+        
+        setInterval(() => {
+            const now = new Date();
+            const diff = now - startDate;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const mins = Math.floor((diff / 1000 / 60) % 60);
+            const secs = Math.floor((diff / 10) % 100);
+
+            document.getElementById('counter').innerHTML = 
+                `${days} Días | ${hours}h | ${mins}m | ${secs}s`;
+        }, 100);
+    }
+
+    function celebrate() {
+        document.getElementById('final-msg').style.display = 'block';
+        
+        // Lluvia de flores (confetti personalizado)
+        var end = Date.now() + (5 * 1000);
+        var colors = ['#ff4d6d', '#a2d2ff', '#f8edeb', '#d4af37'];
+
+        (function frame() {
+            confetti({
+                particleCount: 5,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 },
+                colors: colors
+            });
+            confetti({
+                particleCount: 5,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 },
+                colors: colors
+            });
+
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+
+        setTimeout(() => {
+            alert("¡Felices 11 meses, mi vida! Eres lo mejor que me ha pasado. Gracias por caminar conmigo. ❤️");
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
