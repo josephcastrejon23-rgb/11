@@ -18,7 +18,6 @@
         }
         h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--rose); margin: 0; }
         
-        /* MARCO REAL ACTUALIZADO CON TU FOTO */
         .photo-frame {
             margin: 30px auto; width: 250px; height: 320px; border: 10px solid white; border-radius: 15px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.2); position: relative; overflow: hidden; background: #fff;
@@ -47,9 +46,10 @@
 
         /* --- JUEGOS --- */
         .heart-clicker { font-size: 6rem; cursor: pointer; transition: 0.1s; display: inline-block; filter: drop-shadow(0 0 10px rgba(255,77,109,0.3)); }
-        .memory-grid { display: grid; grid-columns: repeat(4, 1fr); display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 320px; margin: 20px auto; }
+        .memory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 320px; margin: 20px auto; }
         .card { height: 70px; background: var(--gold); border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: transparent; }
         .card.open { background: white; color: initial; border: 2px solid var(--gold); }
+        .card.matched { background: #e8f5e9; color: initial; border: 2px solid #4caf50; cursor: default; }
         #catcher-zone { width: 100%; height: 300px; background: #f0f9ff; border-radius: 20px; position: relative; overflow: hidden; border: 2px dashed var(--hortensia); }
     </style>
 </head>
@@ -60,15 +60,15 @@
     <h1>Zarelly Dayanne</h1>
     
     <div class="photo-frame">
-        <img src="https://i.ibb.co/VWV0pXWb/image-257a77.jpg" alt="Zarelly y José" id="anniversary-photo">
+        <img src="https://i.ibb.co/VWV0pXWb/image-257a77.jpg" alt="Zarelly y José">
     </div>
 
     <div class="timer-box" id="main-timer">Contando nuestra historia...</div>
 
     <div class="main-nav">
-        <button class="btn-main btn-rose" onclick="openSec('Rosas')">🌹 ROSAS</button>
-        <button class="btn-main btn-lily" onclick="openSec('Lirios')">🌸 LIRIOS</button>
-        <button class="btn-main btn-hort" onclick="openSec('Hortensias')">💐 HORTENSIAS</button>
+        <button class="btn-main btn-rose" onclick="openSec('rosas')">🌹 ROSAS</button>
+        <button class="btn-main btn-lily" onclick="openSec('lirios')">🌸 LIRIOS</button>
+        <button class="btn-main btn-hort" onclick="openSec('hortensias')">💐 HORTENSIAS</button>
     </div>
 
     <div style="margin-top: 40px;">
@@ -113,6 +113,10 @@
     <div class="heart-clicker" onclick="heartPop()">❤️</div>
     <div id="heart-count" style="font-size: 3rem; color: var(--rose); font-weight:800;">0</div>
     <div id="heart-msg" style="min-height: 60px; margin-top: 15px; font-weight: 600; color: #555; padding: 10px; border-top: 1px solid #eee;">¡Toca el corazón, preciosa!</div>
+    <div style="margin-top:20px;">
+        <button onclick="openSec('game-memory')" style="padding:10px; border-radius:10px; border:none; background:var(--gold); color:white; cursor:pointer;">Jugar Memoria</button>
+        <button onclick="openSec('game-catch')" style="padding:10px; border-radius:10px; border:none; background:var(--hortensia); color:white; cursor:pointer;">Atrapar Flores</button>
+    </div>
 </div>
 
 <div id="game-memory" class="section">
@@ -127,7 +131,6 @@
 </div>
 
 <script>
-    // CONFIGURACIÓN DEL TIEMPO (11 ABRIL 2025)
     function updateTimer() {
         const start = new Date(2025, 3, 11, 0, 0, 0); 
         const now = new Date();
@@ -139,28 +142,31 @@
         document.getElementById('main-timer').innerText = `${days} días | ${hours}h | ${mins}m | ${secs}s`;
     }
     setInterval(updateTimer, 1000);
+    updateTimer();
 
     function openSec(id) {
         document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-        document.getElementById(id).style.display = 'block';
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        if(id === 'game-memory') initMemory();
-        if(id === 'game-catch') initCatchGame();
+        const target = document.getElementById(id);
+        if (target) {
+            target.style.display = 'block';
+            window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+            if(id === 'game-memory') initMemory();
+            if(id === 'game-catch') initCatchGame();
+        }
     }
 
-    // PROMESAS
     const promises = [
         "Ser tu apoyo incondicional.", "Nunca dejar de decirte 'Te amo'.", 
         "Cuidar tu corazón todos los días.", "Celebrar cada uno de tus logros.",
         "Darte la mano en los momentos difíciles.", "Ser tu fan número uno siempre.",
         "Recordarte lo inteligente que eres.", "Construir un futuro juntos.",
         "Darte besos infinitos como el de la foto.", "Escuchar cada una de tus metas.",
-        "Amarte hoy más que ayer, pero menos que mañana. Amarte infinito por siempre y para siempre"
+        "Amarte infinito por siempre y para siempre"
     ];
     const pDiv = document.getElementById('promises-list');
+    pDiv.innerHTML = "";
     promises.forEach(p => { pDiv.innerHTML += `<div class="promise-item"><span>✨</span> ${p}</div>`; });
 
-    // JUEGO LATIDOS (CON MENSAJES ROTATIVOS CADA 20)
     let hCount = 0;
     const loveMsgs = ["Eres mi mundo", "Tú puedes preciosa", "Devoraste💅", "WIWIWIWIW", "Vamos amorchitos", "Mi amor infinito", "Te amo Zarelly", "11 meses de luz", "Eres perfecta", "Mi esposhita", "Por siempre José & Zarelly"];
     function heartPop() {
@@ -170,19 +176,18 @@
         confetti({ particleCount: 12, spread: 50, origin: { y: 0.8 }, colors: ['#ff4d6d', '#ffd700'] });
     }
 
-    // MEMORIA
     function initMemory() {
         const icons = ['🌹','🌹','🌸','🌸','💐','💐','💎','💎','💍','💍','✨','✨','❤️','❤️','👑','👑'];
         const grid = document.getElementById('mem-grid'); grid.innerHTML = '';
         icons.sort(() => 0.5 - Math.random()).forEach(icon => {
             const card = document.createElement('div'); card.className = 'card'; card.innerHTML = icon;
             card.onclick = function() {
-                if(this.classList.contains('open')) return;
+                if(this.classList.contains('open') || this.classList.contains('matched')) return;
                 this.classList.add('open');
                 const opened = document.querySelectorAll('.open:not(.matched)');
                 if(opened.length === 2) {
                     if(opened[0].innerHTML === opened[1].innerHTML) {
-                        opened.forEach(c => c.classList.add('matched'));
+                        opened.forEach(c => { c.classList.add('matched'); c.classList.remove('open'); });
                         if(document.querySelectorAll('.matched').length === 16) confetti({ particleCount: 150 });
                     } else {
                         setTimeout(() => opened.forEach(c => c.classList.remove('open')), 500);
@@ -193,7 +198,6 @@
         });
     }
 
-    // ATRAPAR FLORES
     let cScore = 0;
     function initCatchGame() {
         const zone = document.getElementById('catcher-zone'); zone.innerHTML = ''; cScore = 0;
