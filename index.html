@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zarelly: 11 Meses de Magia ❤️</title>
+    <title>Zarelly: 11 Meses juntos ❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;600;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
@@ -17,127 +17,117 @@
             text-align: center; padding: 40px 20px;
         }
         h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--rose); margin: 0; }
+        
+        /* MARCO REAL ACTUALIZADO CON TU FOTO */
         .photo-frame {
-            margin: 30px auto; width: 220px; height: 220px; border: 8px solid white; border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); position: relative; overflow: hidden; background: #eee;
+            margin: 30px auto; width: 250px; height: 320px; border: 10px solid white; border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2); position: relative; overflow: hidden; background: #fff;
+            transform: rotate(-2deg); transition: 0.5s;
         }
+        .photo-frame:hover { transform: rotate(0deg) scale(1.05); }
         .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
-        .timer-box { margin-top: 20px; background: white; padding: 15px 25px; border-radius: 50px; font-weight: 800; border: 1px solid var(--rose); }
+        .photo-frame::after { content: '❤️'; position: absolute; bottom: 10px; right: 10px; font-size: 1.5rem; }
+
+        .timer-box { margin-top: 20px; background: white; padding: 15px 25px; border-radius: 50px; font-weight: 800; border: 1px solid var(--rose); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 
         /* --- NAVEGACIÓN --- */
         .main-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
-        .btn-main { padding: 15px 25px; border: none; border-radius: 50px; cursor: pointer; font-weight: 700; transition: 0.3s; }
+        .btn-main { padding: 15px 25px; border: none; border-radius: 50px; cursor: pointer; font-weight: 700; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .btn-rose { background: var(--rose); color: white; }
         .btn-lily { background: white; color: #d4a373; border: 1px solid #d4a373; }
         .btn-hort { background: var(--hortensia); color: #004a99; }
 
-        /* --- SECCIONES ESPECIALES --- */
+        /* --- SECCIONES --- */
         .section { display: none; padding: 40px 20px; max-width: 800px; margin: 0 auto; animation: fadeInUp 0.8s ease; text-align: center; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
-        .love-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--rose); text-align: left; }
+        .love-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--rose); text-align: left; position: relative; }
         .poem-box { font-family: 'Dancing Script', cursive; font-size: 1.8rem; line-height: 1.6; color: #444; margin: 20px 0; }
-        
-        /* Estilo para las Promesas (Hortensias) */
-        .promise-item { display: flex; align-items: center; gap: 10px; margin: 10px 0; font-size: 1rem; color: #555; }
-        .promise-item i { color: var(--hortensia); font-size: 1.5rem; }
+        .promise-item { display: flex; align-items: center; gap: 10px; margin: 12px 0; font-size: 0.95rem; color: #444; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px; }
 
         /* --- JUEGOS --- */
-        .heart-clicker { font-size: 6rem; cursor: pointer; transition: 0.1s; display: inline-block; }
-        .memory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 320px; margin: 20px auto; }
+        .heart-clicker { font-size: 6rem; cursor: pointer; transition: 0.1s; display: inline-block; filter: drop-shadow(0 0 10px rgba(255,77,109,0.3)); }
+        .memory-grid { display: grid; grid-columns: repeat(4, 1fr); display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 320px; margin: 20px auto; }
         .card { height: 70px; background: var(--gold); border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: transparent; }
         .card.open { background: white; color: initial; border: 2px solid var(--gold); }
-        #catcher-zone { width: 100%; height: 300px; background: #e0f2fe; border-radius: 20px; position: relative; overflow: hidden; border: 2px dashed var(--hortensia); }
+        #catcher-zone { width: 100%; height: 300px; background: #f0f9ff; border-radius: 20px; position: relative; overflow: hidden; border: 2px dashed var(--hortensia); }
     </style>
 </head>
 <body>
 
 <section id="hero">
-    <div style="font-size: 0.7rem; letter-spacing: 5px; font-weight: 800; color: var(--gold);">MESARIO #11</div>
+    <div style="font-size: 0.7rem; letter-spacing: 5px; font-weight: 800; color: var(--gold); margin-bottom: 10px;">MAÑANA: 11 DE MARZO</div>
     <h1>Zarelly Dayanne</h1>
     
     <div class="photo-frame">
-        <img src="URL_DE_TU_FOTO" alt="Nuestra Foto">
+        <img src="https://i.ibb.co/VWV0pXWb/image-257a77.jpg" alt="Zarelly y José" id="anniversary-photo">
     </div>
 
-    <div class="timer-box" id="main-timer">Cargando...</div>
+    <div class="timer-box" id="main-timer">Contando nuestra historia...</div>
 
     <div class="main-nav">
-        <button class="btn-main btn-rose" onclick="openSec('rosas')">🌹 ROSAS</button>
-        <button class="btn-main btn-lily" onclick="openSec('lirios')">🌸 LIRIOS</button>
-        <button class="btn-main btn-hort" onclick="openSec('hortensias')">💐 HORTENSIAS</button>
+        <button class="btn-main btn-rose" onclick="openSec('Rosas')">🌹 ROSAS</button>
+        <button class="btn-main btn-lily" onclick="openSec('Lirios')">🌸 LIRIOS</button>
+        <button class="btn-main btn-hort" onclick="openSec('Hortensias')">💐 HORTENSIAS</button>
     </div>
 
     <div style="margin-top: 40px;">
-        <button onclick="openSec('game-hearts')" style="background:#333; color:white; border:none; padding:10px 20px; border-radius:20px; cursor:pointer;">MINIJUEGOS 🎮</button>
+        <button onclick="openSec('game-hearts')" style="background:#333; color:white; border:none; padding:12px 25px; border-radius:30px; cursor:pointer; font-weight: 800; font-size: 0.8rem;">ABRIR MINIJUEGOS 🎮</button>
     </div>
 </section>
 
 <div id="rosas" class="section">
     <div class="love-card">
-        <h2 style="font-family:'Playfair Display'; color:var(--rose); text-align:center;">Una Carta para mi Delegada 🌹</h2>
-        <p><b>Mi amada Zarelly Dayanne,</b></p>
-        <p>Hoy cumplimos 11 meses y no puedo evitar pensar en todo lo que hemos logrado. Así como "devoraste" en las elecciones con tu liderazgo e inteligencia, has devorado cada rincón de mi corazón. Eres una mujer increíble, capaz de todo lo que te propongas. Mañana celebramos casi un año de ser el equipo perfecto. Gracias por ser mi novia, mi apoyo y mi vida entera.</p>
-        <p style="text-align:right; font-family:'Dancing Script'; font-size:1.5rem;">Con amor infinito, José.</p>
+        <h2 style="font-family:'Playfair Display'; color:var(--rose); text-align:center;">Carta para mi Delegada 🌹</h2>
+        <p><b>Mi preciosa Zarelly Dayanne Quijano Quezada,</b></p>
+        <p>Hoy 11 de marzo cumplimos 11 meses y no puedo estar más feliz. Gracias por estos 334 días de pura felicidad a tu lado.</p>
+        <p style="text-align:right; font-family:'Dancing Script'; font-size:1.8rem; color: var(--rose);">Te amo, José.</p>
     </div>
 </div>
 
 <div id="lirios" class="section">
-    <h2 style="font-family:'Playfair Display';">Poema de 11 Meses 🌸</h2>
-    <div class="poem-box">
-        Once meses han pasado,<br>
-        desde aquel abril florecido,<br>
-        de tu risa me he prendado,<br>
-        y en tu amor me he perdido.<br><br>
-        Eres lirio de pureza,<br>
-        inteligente y valiente,<br>
-        mi mayor y única certeza,<br>
-        te amo hoy y siempre.
+    <div class="love-card" style="border-top-color: var(--gold);">
+        <h2 style="font-family:'Playfair Display'; text-align:center;">Poema de Once Meses 🌸</h2>
+        <div class="poem-box">
+            Once meses de amarte,<br>
+            de aquel abril a este marzo,<br>
+            mi suerte fue conocerte,<br>
+            y mi hogar es tu abrazo.<br><br>
+            Lirio de mi vida,<br>
+            inteligente y capaz,<br>
+            Zarelly, mi vida,<br>
+            contigo todo es paz.
+        </div>
     </div>
-    <p style="color:var(--gold); font-weight:800;">¡Tú puedes con todo, preciosa!</p>
 </div>
 
 <div id="hortensias" class="section">
     <div class="love-card" style="border-top-color: var(--hortensia);">
-        <h2 style="font-family:'Playfair Display'; color:#004a99; text-align:center;">Mis 11 Promesas 💐</h2>
-        <div class="promise-item"><span>✨</span> Siempre seré tu fan #1 en la FEPUC y en la vida.</div>
-        <div class="promise-item"><span>✨</span> Nunca nos faltarán los "WIWIWIWIWI" para reír.</div>
-        <div class="promise-item"><span>✨</span> Te cuidaré en tus días cansados.</div>
-        <div class="promise-item"><span>✨</span> Seguiremos construyendo metas juntos.</div>
-        <div class="promise-item"><span>✨</span> Escucharé cada una de tus ideas brillantes.</div>
-        <div class="promise-item"><span>✨</span> Habrá flores para ti, virtuales y reales.</div>
-        <div class="promise-item"><span>✨</span> Mi hombro siempre será tu lugar seguro.</div>
-        <div class="promise-item"><span>✨</span> Celebraremos cada triunfo tuyo como mío.</div>
-        <div class="promise-item"><span>✨</span> Te recordaré lo hermosa que eres cada mañana.</div>
-        <div class="promise-item"><span>✨</span> Aprenderé de tu fuerza y liderazgo.</div>
-        <div class="promise-item"><span>✨</span> Te amaré más en el mes 12 que en el 11.</div>
+        <h2 style="font-family:'Playfair Display'; color:#004a99; text-align:center;">11 Promesas de Amor 💐</h2>
+        <div id="promises-list"></div>
     </div>
 </div>
 
 <div id="game-hearts" class="section">
-    <h2>Amor Infinito</h2>
+    <h2 style="font-family:'Playfair Display';">Nuestro Amor es Infinito</h2>
     <div class="heart-clicker" onclick="heartPop()">❤️</div>
-    <div id="heart-count" style="font-size: 2.5rem; color: var(--rose); font-weight:800;">0</div>
-    <div id="heart-msg" style="min-height: 50px; margin-top: 15px; font-weight: 600;">Haz clic para ver cuánto te amo...</div>
-    <div style="margin-top:20px;">
-        <button class="btn-main" onclick="openSec('game-memory')" style="font-size:0.7rem;">Jugar Memoria</button>
-        <button class="btn-main" onclick="openSec('game-catch')" style="font-size:0.7rem;">Atrapar Flores</button>
-    </div>
+    <div id="heart-count" style="font-size: 3rem; color: var(--rose); font-weight:800;">0</div>
+    <div id="heart-msg" style="min-height: 60px; margin-top: 15px; font-weight: 600; color: #555; padding: 10px; border-top: 1px solid #eee;">¡Toca el corazón, preciosa!</div>
 </div>
 
 <div id="game-memory" class="section">
-    <h2>Memoria Floral</h2>
+    <h2>Memoria de Flores</h2>
     <div class="memory-grid" id="mem-grid"></div>
 </div>
 
 <div id="game-catch" class="section">
     <h2>Atrapa las Hortensias</h2>
     <div id="catcher-zone"></div>
-    <div style="margin-top:10px; font-weight:800;">Puntos: <span id="catch-score">0</span>/11</div>
+    <div style="margin-top:10px; font-weight:800;">Atrapadas: <span id="catch-score">0</span>/11</div>
 </div>
 
 <script>
-    // CONTADOR (11 ABRIL 2025)
+    // CONFIGURACIÓN DEL TIEMPO (11 ABRIL 2025)
     function updateTimer() {
         const start = new Date(2025, 3, 11, 0, 0, 0); 
         const now = new Date();
@@ -153,18 +143,31 @@
     function openSec(id) {
         document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
         document.getElementById(id).style.display = 'block';
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         if(id === 'game-memory') initMemory();
         if(id === 'game-catch') initCatchGame();
     }
 
-    // CLICKER DE AMOR
+    // PROMESAS
+    const promises = [
+        "Ser tu apoyo incondicional.", "Nunca dejar de decirte 'Te amo'.", 
+        "Cuidar tu corazón todos los días.", "Celebrar cada uno de tus logros.",
+        "Darte la mano en los momentos difíciles.", "Ser tu fan número uno siempre.",
+        "Recordarte lo inteligente que eres.", "Construir un futuro juntos.",
+        "Darte besos infinitos como el de la foto.", "Escuchar cada una de tus metas.",
+        "Amarte hoy más que ayer, pero menos que mañana. Amarte infinito por siempre y para siempre"
+    ];
+    const pDiv = document.getElementById('promises-list');
+    promises.forEach(p => { pDiv.innerHTML += `<div class="promise-item"><span>✨</span> ${p}</div>`; });
+
+    // JUEGO LATIDOS (CON MENSAJES ROTATIVOS CADA 20)
     let hCount = 0;
-    const msgs = ["Eres mi todo", "Mi delegada favorita", "WIWIWIWIWI", "Te amo Zarelly", "Tú puedes preciosa", "Devoraste", "11 meses mágicos", "Mi vida entera", "Eres luz", "Por siempre tú"];
+    const loveMsgs = ["Eres mi mundo", "Tú puedes preciosa", "Devoraste💅", "WIWIWIWIW", "Vamos amorchitos", "Mi amor infinito", "Te amo Zarelly", "11 meses de luz", "Eres perfecta", "Mi esposhita", "Por siempre José & Zarelly"];
     function heartPop() {
         hCount++;
         document.getElementById('heart-count').innerText = hCount;
-        document.getElementById('heart-msg').innerText = msgs[Math.floor(hCount / 20) % msgs.length];
-        confetti({ particleCount: 10, spread: 30, origin: { y: 0.8 } });
+        document.getElementById('heart-msg').innerText = loveMsgs[Math.floor(hCount / 20) % loveMsgs.length];
+        confetti({ particleCount: 12, spread: 50, origin: { y: 0.8 }, colors: ['#ff4d6d', '#ffd700'] });
     }
 
     // MEMORIA
@@ -178,8 +181,12 @@
                 this.classList.add('open');
                 const opened = document.querySelectorAll('.open:not(.matched)');
                 if(opened.length === 2) {
-                    if(opened[0].innerHTML === opened[1].innerHTML) opened.forEach(c => c.classList.add('matched'));
-                    else setTimeout(() => opened.forEach(c => c.classList.remove('open')), 500);
+                    if(opened[0].innerHTML === opened[1].innerHTML) {
+                        opened.forEach(c => c.classList.add('matched'));
+                        if(document.querySelectorAll('.matched').length === 16) confetti({ particleCount: 150 });
+                    } else {
+                        setTimeout(() => opened.forEach(c => c.classList.remove('open')), 500);
+                    }
                 }
             };
             grid.appendChild(card);
@@ -191,23 +198,27 @@
     function initCatchGame() {
         const zone = document.getElementById('catcher-zone'); zone.innerHTML = ''; cScore = 0;
         document.getElementById('catch-score').innerText = cScore;
-        function createFlower() {
-            if(cScore >= 11) return;
-            const f = document.createElement('div'); f.className = 'falling-flower'; f.innerHTML = '💐';
+        function spawn() {
+            if(cScore >= 11 || document.getElementById('game-catch').style.display === 'none') return;
+            const f = document.createElement('div');
+            f.innerHTML = '💐'; f.style.position = 'absolute'; f.style.fontSize = '2rem'; f.style.cursor = 'pointer';
             f.style.left = Math.random() * 80 + '%'; f.style.top = '-50px'; zone.appendChild(f);
             let pos = -50;
             let fall = setInterval(() => {
-                pos += 3; f.style.top = pos + 'px';
+                pos += 2.5; f.style.top = pos + 'px';
                 if(pos > 300) { clearInterval(fall); f.remove(); }
             }, 20);
             f.onclick = () => {
                 cScore++; document.getElementById('catch-score').innerText = cScore;
                 clearInterval(fall); f.remove();
-                if(cScore === 11) confetti({ particleCount: 150 });
+                if(cScore === 11) {
+                    alert("¡Atrapaste todo mi amor! Eres la mejor.");
+                    confetti({ particleCount: 200 });
+                }
             };
-            setTimeout(createFlower, 1000);
+            setTimeout(spawn, 1200);
         }
-        createFlower();
+        spawn();
     }
 </script>
 </body>
